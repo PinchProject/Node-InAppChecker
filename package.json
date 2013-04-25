@@ -1,0 +1,22 @@
+{
+    "name": "node-inapp-checker",
+    "description": "A node.js module that verify an iOS in-application purchase receipt",
+    "version": "0.1.0",
+    "author": "Ismael Gorissen <ismael.gorissen@pinchproject.com>",
+    "keywords": ["ios", "iap", "inapp", "in-app", "purchase", "verifier", "checker"],
+    "dependencies": {
+        "debug": "0.7.x",
+        "request": "2.20.x"
+    },
+    "directories": {
+        "lib": "./lib"
+    },
+    "main": "./lib/checker",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    }
+}
