@@ -9,14 +9,14 @@
         "request": "2.20.x"
     },
     "directories": {
-        "lib": "./lib"
+        "lib": "lib"
     },
     "main": "./lib/checker",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/PinchProject/Node-InAppChecker.git"
     },
     "bugs": {
-        "url": ""
+        "url": "https://github.com/PinchProject/Node-InAppChecker/issues"
     }
 }
