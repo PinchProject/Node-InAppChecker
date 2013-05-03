@@ -1,4 +1,4 @@
-# node-inapp-checker
+# Node-InAppChecker
 
 ## Install
 
@@ -11,8 +11,36 @@
 ```javascript
 var IAPChecker = require('node-inapp-checker');
 
+/*
+	Create an instance of IAPChecker with a secret used when verifying an 
+	auto renewable receipt and a boolean to verify the receipt at Apple
+	production or sandbox server.
+*/
 var iap = new IAPChecker(/* secret */, /* production */);
+
+checkReceipt(/* well formatted receipt */, function(err, valid, message, data){
+	if (!err) {
+		/* do something if OK */
+	} else {
+		/* do something if there is an error */
+	}
+});
 ```
+
+## API
+
+* **`checkAutoRenewReceipt(receipt, callback)`**
+
+	Check the auto renewable receipt. A secret must be set when using this method. A response will be send back to the callback.
+
+* **`checkReceipt(receipt, callback)`**
+
+	Check receipt. A response will be send back to the callback.
+
+* **`setSecret(secret)`**
+
+	Set the instance secret.
+
 
 ## License
 
