@@ -1,22 +1,30 @@
 {
-    "name": "node-inapp-checker",
-    "description": "A node.js module that verify an iOS in-application purchase receipt",
-    "version": "0.1.1",
+    "name": "iapc",
+    "description": "An iOS in-application purchase receipt verifier",
+    "version": "0.2.0",
     "author": "Ismael Gorissen <ismael.gorissen@pinchproject.com>",
-    "keywords": ["ios", "iap", "inapp", "in-app", "purchase", "verifier", "checker"],
-    "dependencies": {
-        "debug": "0.7.x",
-        "request": "2.21.x"
-    },
+    "keywords": [
+        "ios",
+        "iap",
+        "inapp",
+        "in-app",
+        "purchase",
+        "verifier",
+        "checker"
+    ],
     "directories": {
         "lib": "lib"
     },
-    "main": "./lib/checker",
+    "main": "./lib/iapc",
     "repository": {
         "type": "git",
         "url": "https://github.com/PinchProject/Node-InAppChecker.git"
     },
     "bugs": {
         "url": "https://github.com/PinchProject/Node-InAppChecker/issues"
+    },
+    "dependencies": {
+        "debug": "~0.7.2",
+        "request": "~2.27.0"
     }
 }

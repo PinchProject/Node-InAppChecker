@@ -1,68 +1,57 @@
-# Node-InAppChecker
+# IAPChecker
 
-![dependencies](https://david-dm.org/PinchProject/Node-InAppChecker.png)
+An iOS in-application purchase receipt verifier.
 
-## Install
+## Contributors
+
+* [objectiveSee](https://github.com/objectiveSee)
+
+
+## How To
+
+### Install
 
 ```
-[sudo] npm install node-inapp-checker
+npm install iapc
 ```
 
-## Usage
+### Use
 
-```javascript
-var IAPChecker = require('node-inapp-checker');
+```
+var IAPChecker = require('iapc');
 
 /*
-	Create an instance of IAPChecker with a secret used when verifying an 
+	Create an instance of IAPChecker with a password used when verifying an 
 	auto renewable receipt and a boolean to verify the receipt at Apple
 	production or sandbox server.
 */
-var iap = new IAPChecker(/* secret */, /* production */);
 
-checkReceipt(/* well formatted receipt */, function(err, valid, message, data){
-	if (!err) {
-		/* do something if OK */
-	} else {
-		/* do something if there is an error */
+var iapc = new IAPChecker('MyPassword'[, true]);
+
+checkReceipt(
+	MyReceipt,
+	function(err, data) {
+		if (err) return console.log(err);
+		
+		// receipt is valid
 	}
-});
+);
 ```
 
 ## API
 
+* **`IAPChecker(password, production)`**
+
+	Create an instance of IAPChecker. All parameters are optional. `password` must be set if you want to verify an auto-renewable subscription receipt, and set `production` to work in production environment.
+
 * **`checkAutoRenewReceipt(receipt, callback)`**
 
-	Check the auto renewable receipt. A secret must be set when using this method. A response will be send back to the callback.
+	Check the auto renewable receipt. A password must be set when using this method. A response will be send back to the callback.
 
 * **`checkReceipt(receipt, callback)`**
 
 	Check receipt. A response will be send back to the callback.
 
-* **`setSecret(secret)`**
+* **`setPassword(password)`**
 
-	Set the instance secret.
-
-
-## License
-
-(The MIT License)
-
-Copyright (C) 2013 PinchProject
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Change log
-
-#### v0.1.1
-
-* update package module version(s)
-* add **david-dm.org** support
-
-#### v0.1.0
-
-* first release
+	Set the instance password.
