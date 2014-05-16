@@ -22,6 +22,12 @@ var iap = new IAPChecker(/* secret */, /* production */);
 
 checkReceipt(/* well formatted receipt */, function(err, valid, message, data){
 	if (!err) {
+		/* check that the product_id of the receipt matches the product_id of your In-App Purchase */
+		if ( data.receipt.product_id !== /* Your Product ID (String) */ ) {
+			/* do something if the user is using a fake receipt. */
+		}
+	
+	
 		/* do something if OK */
 	} else {
 		/* do something if there is an error */
@@ -42,6 +48,14 @@ checkReceipt(/* well formatted receipt */, function(err, valid, message, data){
 * **`setSecret(secret)`**
 
 	Set the instance secret.
+
+
+## Fake Purchases That Pass Validation
+
+From [Hussain Fakhruddin's blog](http://blog.hussulinux.com/2013/04/apple-ios-in-app-purchase-hacking-how-to-prevent-specially-com-zeptolab-ctrbonus-superpower1-hacks/comment-page-1/#comment-33261):
+
+Many jailbroken iOS devices just change the outgoing purchase receipt to an existing valid purchase receipt. (There are background apps to do this). Our server will then send this to Apple server for verification and guess what, apple will send a confirmation! A sheer good trick. But we’re smarter. Check if the product id is one of your products or not. If not, just cancel it out. The most famous spoofed product id is **com.zeptolab.ctrbonus.superpower1**.  If you encounter any product ID apart from your own, then simply block them. They are not genuine at all!
+
 
 
 ## License
